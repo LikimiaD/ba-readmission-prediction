@@ -1,0 +1,41 @@
+/* Minimal patches on top of dash-mantine-components defaults.
+   §3.5 (TASK-3) forbade third-party kits; §1 (TASK-3a) lifted that for mantine.
+   Anything stylistic beyond a tiny polish layer should live in the mantine
+   theme object in app/layout.py, not here. */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--mantine-color-body);
+}
+
+/* Row hover polish for the patient-data card — mantine doesn't style bare Box
+   children, and §6 asks for hoverable rows. */
+.patient-row {
+    padding: 6px 8px;
+    border-radius: 6px;
+    transition: background-color 0.12s ease;
+    cursor: default;
+}
+
+.patient-row:hover {
+    background-color: var(--mantine-color-gray-1);
+}
+
+[data-mantine-color-scheme="dark"] .patient-row:hover {
+    background-color: var(--mantine-color-dark-6);
+}
+
+/* Subtle emphasis on the CatBoost row of the metrics table. */
+.metrics-row-main td {
+    background-color: var(--mantine-color-indigo-0) !important;
+}
+
+[data-mantine-color-scheme="dark"] .metrics-row-main td {
+    background-color: rgba(92, 107, 192, 0.18) !important;
+}
+
+/* Plotly background transparency — figures sit inside mantine Cards. */
+.js-plotly-plot .plotly .main-svg {
+    background: transparent !important;
+}

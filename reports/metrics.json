@@ -1,0 +1,79 @@
+{
+  "meta": {
+    "dataset": "dubradave/hospital-readmissions",
+    "random_state": 42,
+    "train_size": 18062,
+    "val_size": 3188,
+    "test_size": 3750,
+    "positive_rate_train": 0.4701583434835566,
+    "positive_rate_val": 0.4702007528230866,
+    "positive_rate_test": 0.47013333333333335,
+    "python_version": "3.12.3",
+    "run_timestamp_utc": "2026-04-18T18:45:33Z",
+    "feature_engineering": [
+      "total_prior_visits",
+      "emergency_ratio",
+      "meds_per_day",
+      "procedures_per_day",
+      "labs_per_day",
+      "had_emergency_visit",
+      "frequent_inpatient",
+      "n_distinct_diagnoses",
+      "poorly_controlled_diabetes"
+    ],
+    "n_features_before": 16,
+    "n_features_after": 25
+  },
+  "baseline": {
+    "val": {
+      "roc_auc": 0.6333126761831748,
+      "pr_auc": 0.6173945987884917,
+      "f1": 0.5502832861189801,
+      "brier": 0.23545742102509803,
+      "n_samples": 3188
+    },
+    "optimal_threshold": 0.2,
+    "fit_time_seconds": 2.4889094319987635
+  },
+  "random_forest": {
+    "val": {
+      "roc_auc": 0.6334005579405415,
+      "pr_auc": 0.6065429761160959,
+      "f1": 0.5526782547002483,
+      "brier": 0.23580607402760353,
+      "n_samples": 3188
+    },
+    "optimal_threshold": 0.29000000000000004,
+    "fit_time_seconds": 1.8022039019997464
+  },
+  "catboost": {
+    "val": {
+      "roc_auc": 0.7543430374542175,
+      "pr_auc": 0.7357023720793732,
+      "f1": 0.6531871144619602,
+      "brier": 0.2049150520692088,
+      "n_samples": 3188
+    },
+    "test": {
+      "roc_auc": 0.6579993440060334,
+      "pr_auc": 0.6261199075360451,
+      "f1": 0.5872785361603253,
+      "brier": 0.23083713840343725,
+      "n_samples": 3750
+    },
+    "optimal_threshold": 0.41000000000000003,
+    "best_params": {
+      "iterations": 800,
+      "learning_rate": 0.05,
+      "depth": 6,
+      "l2_leaf_reg": 5.0,
+      "random_strength": 1.0,
+      "border_count": 128,
+      "min_data_in_leaf": 20,
+      "grow_policy": "SymmetricTree",
+      "one_hot_max_size": 8,
+      "bagging_temperature": 0.5
+    },
+    "fit_time_seconds": 1.0459055860001172
+  }
+}
